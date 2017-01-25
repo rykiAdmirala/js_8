@@ -12,7 +12,7 @@ function Worker(name, company, salary) {
   this.salary = salary;
 }
 Worker.prototype.work = function() {
-  console.log(this.name + "loves his company \"" + this.company + "\" very much, he is glad to work here!");
+  console.log(this.company +" - лучшая мастерская. Именно она - залог моего успеха");
 };
 
 function Student(name, university, scholarship) {
@@ -35,7 +35,8 @@ var headman = new Student('Матвей', 'МГИМО', 3650);
 console.log(fitter.name +' не особо любит двигаться, ведь его вес - '+ fitter.weight);
 console.log('---');
 
-console.log('Не часто встретишь такого человека, как '+ tailor.name +'. В свои '+ tailor.age +' лет он уже сшил одежду для всей российской эстрады');
+console.log('Не часто встретишь такого человека, как '+ tailor.name +'. В свои '+ tailor.age +' лет он уже сшил одежду для всей российской эстрады. Вот что он сам говорит об этом:');
+tailor.work();
 console.log('---');
 
 console.log('Оно ведь сразу видно, что '+ frosh.name +' - '+ frosh.sex +'. Кто же ещё мог такое ляпнуть?');
