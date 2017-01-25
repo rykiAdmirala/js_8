@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #fafafa;
+    font: 15px Arial, sans-serif;
+}
+
+/** Search page **/
+.wrapper {
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #fff;
+}
+.search-logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 90px;
+    margin: 20px 0 0 40px;
+}
+.search-logo img {
+    width: 100%;
+}
+.search-input {
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    font-size: 15px;
+    line-height: 30px;
+    color: #555;
+}
+.search-input:hover,
+.search-input:focus,
+.search-input:active {
+    outline: none;
+    box-shadow: 0 3px 11px 0px rgba(0,0,0,0.2);
+}
+.search-box {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 55%;
+    margin: 18px 0 0 50px;
+}
+.search-submit {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 0;
+    width: 55px;
+    background: url(../img/search-button-bg.png) no-repeat center center/20px, linear-gradient(#5e5eff, #3232e6);
+    border: 1px solid #0303c1;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/** Start Page **/
+.start-page .wrapper {
+    background: transparent;
+}
+.start-page .search-submit {
+    position: initial;
+    width: initial;
+    margin: 20px 0 0;
+    padding: 0 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #666;
+    font-size: 15px;
+    line-height: 31px;
+}
+.start-page .search-submit:hover {
+    background: linear-gradient(#fafafa, #f0f0f0);
+    border-color: #c0c0c0;
+    color: #000;
+}
+.start-page .search-logo {
+    display: block;
+    width: 22%;
+    margin: 35vh auto 0;
+}
+.start-page .search-box {
+    display: block;
+    width: 60%;
+    margin: 25px auto 0;
+    text-align: center;
+}
+.start-page .search-box input {
+    line-height: 47px;
+}
+
+/** Results **/
+.result-list {
+    margin: 25px 0 40px;
+    padding: 25px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background: #fafafa;
+    list-style: none;
+}
+.result-list li {
+    margin: 0 0 20px;
+}
+.result-list li img {
+    width: 220px;
+    max-height: 170px;
+    object-fit: cover;
+}
+
+/** Ajax loading circle **/
+.ajax-loading-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .5) url(../img/ajax-loader.gif) no-repeat center center;
+}
+.loading .ajax-loading-modal {
+    display: block;
+}

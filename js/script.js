@@ -1,19 +1,24 @@
 $(function() {
 
-  var resultList = '';
+  var $resultWrapper = $('<div class="result-wrap"></div>').appendTo('.wrapper');
 
   function search(e) {
+
     e.preventDefault();
     var searchQuery = $('.search-input').val();
-
     var url = "https://api.tenor.co/v1/search?key=LIVDSRZULELA&tag="+encodeURIComponent(searchQuery);
-    $.getJSON(url, function(data) {
-      resultList = '<ul class="result-list>';
 
+    $.getJSON(url, function(data) {
+
+      $resultWrapper.empty();
+
+      var resultList = '<ul class="result-list">';
+
+      // Rendering HTML for each list-element (image)
       $.each(data.results, function() {
         resultItem =
              '<li>' +
-               '<a href="'+ this.itemurl +'" title="'+ this.title +'">' +
+               '<a target="_blank" href="'+ this.itemurl +'" title="'+ this.title +'">' +
                  '<img src="' + this.media[0].tinygif.url + '">' +
                '</a>' +
              '</li>';
@@ -21,21 +26,23 @@ $(function() {
         resultList += resultItem;
       });
 
-      resultList += '<div class="ajax-loader"></div></ul>';
+      resultList += '</ul>';
 
-      $('.wrapper').append(resultList);
+      $resultWrapper.append(resultList);
 
     });
 
-    $('.body').removeClass('start-page');
+    $('body').removeClass('start-page');
+    $resultWrapper.append('<div class="ajax-loading-modal"></div>');
   }
 
 
+  // Attaching handlers
   $('.search-submit').on('click', search);
 
   $(document).on({
-    ajaxStart: function() { $(resultList).addClass('loading') },
-    ajaxStop: function() { $(resultList).removeClass('loading') }
+    ajaxStart: function() { $resultWrapper.addClass('loading') },
+    ajaxStop: function() { $resultWrapper.removeClass('loading') }
   });
 
 });
